@@ -1,6 +1,5 @@
-import org.apache.commons.math3.random.AbstractRandomGenerator;
 import org.apache.commons.math3.random.RandomDataGenerator;
-import org.apache.commons.math3.random.RandomGenerator;
+import search.LinearSearch;
 import sort.InsertionSort;
 
 public class Application {
@@ -13,18 +12,27 @@ public class Application {
             A[i] = randomDataGenerator.nextInt(0,amountOfNumbers);
         }
 
-        System.out.println("Before sort:");
+        System.out.println("Before sortNonDecreasing:");
 
         for (int a : A) {
             System.out.print(a + " ");
         }
 
-        InsertionSort.sort(A);
+        InsertionSort.sortNonIncreasing(A);
 
-        System.out.println("\nAfter sort:");
+        System.out.println("\nAfter sortNonDecreasing:");
 
         for (int a : A) {
             System.out.print(a + " ");
         }
+
+        System.out.print("Search result of value ");
+
+        int key = randomDataGenerator.nextInt(0,amountOfNumbers);
+
+        System.out.println(key + ": " + LinearSearch.search(key,A));
+
+
+
     }
 }
